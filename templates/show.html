@@ -17,9 +17,12 @@
    <p><img src="{{ object_id.images.url }}" alt="{{object_id.images}}" class="img-fluid" style="max-width:300px;"></p>
    <div class="mb-4">{{ object_id.content|linebreaks }}</div>
    <a href="{% url 'like' object_id.pk %}"><i class="far fa-thumbs-up" ></i> {{object_id.like}} </a>
-   
+   <div class='float-right'>
+    <a href="{% url 'update' object_id.pk %}" class="btn btn-warning">編集</a>
+    <a href="{% url 'delete' object_id.pk %}" class="btn btn-danger">削除</a>
+  </div>
   </div>
 
-<a href="{% url 'list' %}" class="btn btn-warning">一覧に戻る</a>
+<a href="{% url 'list' %}" class="btn btn-secondary">一覧に戻る</a>
 </div>
 {% endblock content %}

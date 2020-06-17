@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import BoardModel
 from django.shortcuts import redirect
-from django.views.generic import CreateView
+from django.views.generic import CreateView,UpdateView,DeleteView
 from django.urls import reverse_lazy
 
 # Create your views here.
@@ -28,3 +28,13 @@ class PostCreate(CreateView):
   fields = ('title', 'content', 'images')
   success_url = reverse_lazy('list')
 
+class PostUpdate(UpdateView):
+  template_name= 'update.html'
+  model=BoardModel
+  fields = ('title', 'content', 'images')
+  success_url = reverse_lazy('list')
+
+class PostDelete(DeleteView):
+  template_name= 'delete.html'
+  model=BoardModel
+  success_url = reverse_lazy('list')
